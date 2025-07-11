@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'auth.urls'
-ALLOWED_HOSTS = ['your-app-name.onrender.com']
+ALLOWED_HOSTS = ['https://django-auth-si0e.onrender.com']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
