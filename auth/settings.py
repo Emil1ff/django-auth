@@ -89,6 +89,12 @@ DATABASES = {
     }
 }
 
+import os
+
+CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379')
+CELERY_RESULT_BACKEND = os.getenv('REDIS_URL', 'redis://localhost:6379')
+
+
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {

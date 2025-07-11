@@ -1,5 +1,6 @@
 import os
 from celery import Celery
+import os
 
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'auth.settings')
@@ -16,3 +17,6 @@ app.autodiscover_tasks()
 @app.task(bind=True)
 def debug_task(self):
     print(f'Request: {self.request!r}')
+
+app.conf.broker_url = os.environ.get('REDIS_URL', 'redis://localhost:6379')
+app.conf.result_backend = os.environ.get('REDIS_URL', 'redis://localhost:6379')
